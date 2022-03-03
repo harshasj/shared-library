@@ -10,9 +10,11 @@ def call (body){
         agent any 
         stages {
             stage("library"){
-                sh """
-                echo "the library loaded "
-                """
+                steps {
+                    sh """
+                    echo "the library loaded "
+                    """
+                }
             }
         }
     }
