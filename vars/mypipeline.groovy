@@ -8,13 +8,15 @@ def call(body){
     body ()
     def params = [:]
     params = config 
+    println("the library started")
     pipeline{
         agent any 
         stages {
             stage("library"){
                 steps {
+                    def my_name= config.name
                     sh """
-                    echo "the library loaded "
+                    echo "the library loaded ${my_name} "
                     """
                 }
             }
