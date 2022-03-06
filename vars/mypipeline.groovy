@@ -1,13 +1,16 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
-
-def call(body){
-
+def call(body) {
     def config = [:]
-    body.resolveStrategy = Closure.DElEGATE_FIRST
+    body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
-    body ()
-    def params = [:]
-    params = config 
-    println("the library started")
-    def my_name= config.name
+    body()
+    
+    println("the pipeline is loaded")
+    // This is where the magic happens - put your pipeline snippets in here, get variables from config.
+    node {
+        stage("Test"){
+            
+            println("the value paased is ${config.name}")
+        
+        }
+    }
 }
