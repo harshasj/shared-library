@@ -6,6 +6,8 @@ def call (body){
     body.resolveStrategy = Closure.DElEGATE_FIRST
     body.delegate = config
     body ()
+    def params = [:]
+    params = config 
     pipeline{
         agent any 
         stages {
