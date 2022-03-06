@@ -14,7 +14,7 @@ def call(body) {
             sh( script: "${config.buildCommand}" , returnStdout: true).trim()
         }
         stage("clean up"){
-        cleanWs
+        cleanWs()
         }
     }
 }
