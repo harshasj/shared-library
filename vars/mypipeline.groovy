@@ -11,7 +11,7 @@ def call(body) {
         checkout scm
         }
         stage("Build"){
-        println("the build started")
+        sh( script: "mvn clean install" , returnStdout: true).trim()
         }
     }
 }
