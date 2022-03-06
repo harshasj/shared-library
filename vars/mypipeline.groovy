@@ -11,7 +11,10 @@ def call(body) {
         checkout scm
         }
         stage("Build"){
-        sh( script: "mvn clean install" , returnStdout: true).trim()
+            sh( script: "${config.buildCommand}" , returnStdout: true).trim()
+        }
+        stage("clean up"){
+        cleanWs
         }
     }
 }
